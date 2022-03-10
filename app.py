@@ -1,10 +1,8 @@
 from bottle import default_app, get, run, view
 
 ############################################################
-@get("/")
-@view("index")
-def _():
-    return
+# INDEX
+import routes.index
 
 
 ############################################################
