@@ -1,11 +1,11 @@
 from bottle import error, default_app, get, run, static_file, view
 
 ############################################################
-# INDEX
-import routes.index
+# GET
+import routes.index_get
+import routes.home_get
+import routes.fourOhFour_get
 
-# 404
-import routes.fourOhFour
 
 ############################################################
 @get("/static/<file_path:path>")
