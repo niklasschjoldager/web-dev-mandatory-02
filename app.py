@@ -1,9 +1,11 @@
-from bottle import default_app, get, run, view
+from bottle import error, default_app, get, run, view
 
 ############################################################
 # INDEX
 import routes.index
 
+# 404
+import routes.fourOhFour
 
 ############################################################
 try:
