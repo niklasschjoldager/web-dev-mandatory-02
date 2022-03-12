@@ -1,17 +1,22 @@
 from bottle import error, default_app, get, run, static_file, view
 
-############################################################
-# ROUTES
+# Routes
 from routes import fourOhFour, home, index
 
-# API
-import api.tweets.tweets_by_id_get
-import api.tweets.tweets_delete
-import api.tweets.tweets_get
-import api.tweets.tweets_like_put
-import api.tweets.tweets_post
-import api.tweets.tweets_put
-import api.tweets.tweets_unlike_put
+# Tweets
+from api.tweets import (
+    tweets_by_id_get,
+    tweets_delete,
+    tweets_get,
+    tweets_like_put,
+    tweets_post,
+    tweets_put,
+    tweets_unlike_put,
+)
+
+# Users
+import api.users.users_get
+import api.users.users_post
 
 
 ############################################################
