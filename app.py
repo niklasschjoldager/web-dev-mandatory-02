@@ -30,6 +30,12 @@ def _(file_path):
 
 
 ############################################################
+@get("/js/<file_name>")
+def _(file_name):
+    return static_file(file_name, root="./js")
+
+
+############################################################
 try:
     # Production
     import production

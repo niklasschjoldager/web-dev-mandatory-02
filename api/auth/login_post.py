@@ -17,8 +17,9 @@ def _():
             jwt_decoded = jwt.decode(encoded_user_session, JSON_WEB_TOKEN_SECRET, algorithms=["HS256"])
 
             for session in user_sessions:
-                if jwt_decoded == session:
+                if jwt_decoded["session_id"] == session:
                     return redirect("/home")
+            response.delete_cookie("user_session")
         except jwt.exceptions.InvalidTokenError:
             response.delete_cookie("user_session")
 

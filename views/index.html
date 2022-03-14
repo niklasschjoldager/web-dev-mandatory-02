@@ -2,6 +2,16 @@
 
 % include("header_index")
 
+<script src="js/index.js" type="module" defer></script>
+
 <main class="site-content">
   <h1>Frontpage</h1>
+
+  <form action="/login" method="POST" data-form="user-login" style="display: grid; max-width: 200px; margin-inline: auto;">
+    <label for="user-email">E-mail</label>
+    <input type="email" name="user_email" id="user-email">
+    <label for="user-password">Password</label>
+    <input type="password" name="user_password" id="user-password">
+    <button>Login</button>
+  </form>
 </main>
