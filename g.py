@@ -6,7 +6,14 @@ users = [
         "user_name": "Niklas Schjoldager",
         "user_email": "test@mail.dk",
         "user_password": "Mypassword123!",
-    }
+    },
+    {
+        "user_id": "5739a9aa-1d86-4604-8471-aca0e710d007",
+        "user_username": "HansHansen",
+        "user_name": "Hans hansen",
+        "user_email": "hans@hansen.dk",
+        "user_password": "Mypassword123!",
+    },
 ]
 
 user_sessions = []
@@ -22,7 +29,6 @@ USER_NAME_MIN_LENGTH = 2
 USER_USERNAME_MAX_LENGTH = 20
 USER_USERNAME_MIN_LENGTH = 4
 USER_PASSWORD_MIN_LENGTH = 8
-
 
 ###########################################################
 REGEX_EMAIL = '^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$'
