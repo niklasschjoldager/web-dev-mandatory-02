@@ -18,6 +18,10 @@ from api.tweets import (
 import api.users.users_get
 import api.users.users_post
 
+# Auth
+import api.auth.login_post
+import api.auth.logout_post
+
 
 ############################################################
 @get("/static/<file_path:path>")
