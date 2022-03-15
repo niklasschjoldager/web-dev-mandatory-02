@@ -111,6 +111,8 @@ def _():
             "user_username": user_username,
         }
 
+        # TODO: Add user session
+
         ############################################################
         # Add user
         users.append(user)

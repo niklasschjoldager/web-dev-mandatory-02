@@ -20,7 +20,8 @@ def _():
                 if jwt_decoded["session_id"] == session:
                     return redirect("/home")
             response.delete_cookie("user_session")
-        except jwt.exceptions.InvalidTokenError:
+        except jwt.exceptions.InvalidTokenError as ex:
+            print(ex)
             response.delete_cookie("user_session")
 
     # Validate email
@@ -62,7 +63,8 @@ def _():
     user_session_id = str(uuid.uuid4())
     user_session = {"session_id": user_session_id, "iat": int(time.time())}
     user_sessions.append(user_session_id)
+
+    # Success
     encoded_jwt = jwt.encode(user_session, JSON_WEB_TOKEN_SECRET, algorithm="HS256")
     response.set_cookie("user_session", encoded_jwt)
-
     return redirect("/home")
