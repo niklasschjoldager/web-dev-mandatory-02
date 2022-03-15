@@ -36,6 +36,12 @@ def _(file_name):
 
 
 ############################################################
+@get("/css/<file_name>")
+def _(file_name):
+    return static_file(file_name, root="./css")
+
+
+############################################################
 try:
     # Production
     import production

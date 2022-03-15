@@ -1,9 +1,11 @@
-% rebase("base.html", title="Home")
+% rebase("components/base.html", title="Home")
 
-% include("header_home")
+% include("components/header_home")
 
 <script src="js/home.js" type="module" defer></script>
 
 <main class="site-content">
   <h1>Home</h1>
+
+  % include("components/tweet-form")
 </main>
