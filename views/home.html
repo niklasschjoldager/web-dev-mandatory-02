@@ -8,4 +8,16 @@
   <h1>Home</h1>
 
   % include("components/tweet-form")
+
+  <section data-hook="tweets"></section>
+
+  <template data-template="tweet">
+    <form class="tweet" data-form="tweet" data-liked="false">
+      <div class="tweet__id" data-field="id"></div>
+      <div class="tweet__text" data-field="text"></div>
+      <button class="tweet__button" type="button" data-action="like" data-state="shown">Like</button>
+      <button class="tweet__button" type="button" data-action="dislike" data-state="hidden">Dislike</button>
+      <button class="tweet__button" type="button" data-action="delete">Delete tweet</button>
+    </form>
+  </template>
 </main>

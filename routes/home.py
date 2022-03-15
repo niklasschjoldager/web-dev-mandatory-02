@@ -8,7 +8,7 @@ from g import JSON_WEB_TOKEN_SECRET, user_sessions
 @get("/home")
 @view("home")
 def _():
-
+    # Validate if user is logged in
     if not request.get_cookie("user_session"):
         return redirect("/")
 
@@ -22,6 +22,7 @@ def _():
 
         response.delete_cookie("user_session")
         return redirect("/")
-    except jwt.exceptions.InvalidTokenError:
+    except jwt.exceptions.InvalidTokenError as ex:
+        print(ex)
         response.delete_cookie("user_session")
         return redirect("/")

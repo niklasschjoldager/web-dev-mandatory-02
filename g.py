@@ -24,6 +24,9 @@ tweets = []
 JSON_WEB_TOKEN_SECRET = "699js!ihTri94t@sa129d90waj0cjh428h824h5298h"
 
 ###########################################################
+TWEET_TEXT_MIN_LENGTH = 1
+TWEET_TEXT_MAX_LENGTH = 255
+
 USER_NAME_MAX_LENGTH = 50
 USER_NAME_MIN_LENGTH = 2
 USER_USERNAME_MAX_LENGTH = 20
