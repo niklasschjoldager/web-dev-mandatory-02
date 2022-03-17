@@ -1,8 +1,10 @@
 const formUserLogin = document.querySelector("[data-form=user-login]")
+const formUserSignup = document.querySelector("[data-form=user-signup]")
 
-formUserLogin.addEventListener("submit", login)
+formUserLogin.addEventListener("submit", handleLogin)
+formUserSignup.addEventListener("submit", handleCreateAccount)
 
-async function login(event) {
+async function handleLogin(event) {
   event.preventDefault()
 
   const request = await fetch("/login", {
@@ -14,4 +16,18 @@ async function login(event) {
 
   if (!response.ok) console.log(await response.json())
   if (response.redirected) window.location.href = response.url
+}
+
+async function handleCreateAccount(event) {
+  event.preventDefault()
+
+  const request = await fetch("/users", {
+    method: "POST",
+    body: new FormData(formUserSignup),
+  })
+
+  const response = await request
+
+  console.log(response)
+  if (!response.ok) console.log(await response.json())
 }

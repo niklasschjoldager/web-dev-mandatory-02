@@ -7,11 +7,30 @@
 <main class="site-content">
   <h1>Frontpage</h1>
 
-  <form action="/login" method="POST" data-form="user-login" style="display: grid; max-width: 200px; margin-inline: auto;">
-    <label for="user-email">E-mail</label>
-    <input type="email" name="user_email" id="user-email">
-    <label for="user-password">Password</label>
-    <input type="password" name="user_password" id="user-password">
-    <button>Login</button>
-  </form>
+  <div style="display: grid;">
+    <h2>Login</h2>
+    <form action="/login" method="POST" data-form="user-login" style="display: grid;">
+      <label for="user-login-email">E-mail</label>
+      <input type="email" name="user_email" id="user-login-email">
+      <label for="user-login-password">Password</label>
+      <input type="password" name="user_password" id="user-login-password">
+      <button>Login</button>
+    </form>
+  </div>
+  
+  <div style="display: grid;">
+    <h2>Create account</h2>
+    <form action="/users" method="POST" data-form="user-signup" style="display: grid;">
+      <label for="user-signup-name">Name</label>
+      <input type="text" name="user_name" id="user-signup-name">
+      <label for="user-signup-username">Username</label>
+      <input type="text" name="user_username" id="user-signup-username">
+      <label for="user-signup-email">Email</label>
+      <input type="email" name="user_email" id="user-signup-email">
+      <label for="user-signup-password">Password</label>
+      <input type="password" name="user_password" id="user-signup-password">
+      <button type="submit">Signup</button>
+    </form>
+  </div>
+
 </main>

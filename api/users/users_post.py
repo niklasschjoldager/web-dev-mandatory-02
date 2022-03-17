@@ -1,10 +1,12 @@
 from bottle import post, response, request
 
+import jwt
 import re
 import time
 import uuid
 
 from g import (
+    JSON_WEB_TOKEN_SECRET,
     REGEX_EMAIL,
     REGEX_PASSWORD,
     REGEX_USERNAME,
@@ -12,6 +14,7 @@ from g import (
     USER_NAME_MAX_LENGTH,
     USER_NAME_MIN_LENGTH,
     USER_PASSWORD_MIN_LENGTH,
+    user_sessions,
     USER_USERNAME_MAX_LENGTH,
     USER_USERNAME_MIN_LENGTH,
 )
@@ -111,14 +114,20 @@ def _():
             "user_username": user_username,
         }
 
-        # TODO: Add user session
-
         ############################################################
         # Add user
         users.append(user)
 
         ############################################################
+        # Create user session
+        user_session_id = str(uuid.uuid4())
+        user_session = {"session_id": user_session_id, "iat": int(time.time())}
+        user_sessions.append(user_session_id)
+
+        ############################################################
         # Success
+        encoded_jwt = jwt.encode(user_session, JSON_WEB_TOKEN_SECRET, algorithm="HS256")
+        response.set_cookie("user_session", encoded_jwt)
         response.status = 201
         return {"user_id": user_id}
     except Exception as ex:
