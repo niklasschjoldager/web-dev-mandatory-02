@@ -1,11 +1,10 @@
-from bottle import get, redirect, response, request, post
+from bottle import get, redirect, response, request
 
 import jwt
 
 from g import JSON_WEB_TOKEN_SECRET, user_sessions
 
 ############################################################
-@post("/logout")
 @get("/logout")
 def _():
     try:
