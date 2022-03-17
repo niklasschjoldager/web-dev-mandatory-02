@@ -57,60 +57,11 @@
 <footer class="p-3">
   <nav aria-label="Footer" role="navigation">
     <ul class="flex flex-wrap justify-center gap-x-3">
-      <li>
-        <a class="text-xs text-gray-400 hover:underline" href="#">About</a>
-      </li>
-      <li>
-        <a class="text-xs text-gray-400 hover:underline" href="#">Helper Center</a>
-      </li>
-      <li>
-        <a class="text-xs text-gray-400 hover:underline" href="#">Terms of Service</a>
-      </li>
-      <li>
-        <a class="text-xs text-gray-400 hover:underline" href="#">Privacy Policy</a>
-      </li>
-      <li>
-        <a class="text-xs text-gray-400 hover:underline" href="#">Cookie Policy</a>
-      </li>
-      <li>
-        <a class="text-xs text-gray-400 hover:underline" href="#">Accessibility</a>
-      </li>
-      <li>
-        <a class="text-xs text-gray-400 hover:underline" href="#">Ads info</a>
-      </li>
-      <li>
-        <a class="text-xs text-gray-400 hover:underline" href="#">Blog</a>
-      </li>
-      <li>
-        <a class="text-xs text-gray-400 hover:underline" href="#">Status</a>
-      </li>
-      <li>
-        <a class="text-xs text-gray-400 hover:underline" href="#">Careers</a>
-      </li>
-      <li>
-        <a class="text-xs text-gray-400 hover:underline" href="#">Brand Resources</a>
-      </li>
-      <li>
-        <a class="text-xs text-gray-400 hover:underline" href="#">Advertising</a>
-      </li>
-      <li>
-        <a class="text-xs text-gray-400 hover:underline" href="#">Marketing</a>
-      </li>
-      <li>
-        <a class="text-xs text-gray-400 hover:underline" href="#">Twitter for Business</a>
-      </li>
-      <li>
-        <a class="text-xs text-gray-400 hover:underline" href="#">Developers</a>
-      </li>
-      <li>
-        <a class="text-xs text-gray-400 hover:underline" href="#">Directory</a>
-      </li>
-      <li>
-        <a class="text-xs text-gray-400 hover:underline" href="#">Settings</a>
-      </li>
-      <li>
-        <a class="text-xs text-gray-400 hover:underline" href="#">&copy; 2022 Tweeter, inc</a>
-      </li>
+      % for link in footer_links:
+        <li>
+          <a class="text-xs text-gray-400 hover:underline" href="#">{{ link }}</a>
+        </li>
+      % end
     </ul>
   </nav>
 </footer>

@@ -2,6 +2,7 @@ from bottle import get, view, redirect, response, request
 
 import jwt
 
+from data import footer_links
 from g import JSON_WEB_TOKEN_SECRET, user_sessions
 
 ############################################################
@@ -22,4 +23,4 @@ def _():
             print(ex)
             response.delete_cookie("user_session")
 
-    return
+    return dict(footer_links=footer_links)
