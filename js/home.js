@@ -19,6 +19,8 @@ async function handleCreateTweet(event) {
 
   if (!request.ok) return alert("Could not tweet")
 
+  form.reset()
+
   const template = templateTweet.content.cloneNode(true)
   template.querySelector(`[data-field="id"]`).textContent = id
   template.querySelector(`[data-field="text"]`).textContent = text
