@@ -19,6 +19,11 @@ module.exports = {
         500: "hsl(207, 10%, 17%)",
       },
     },
+    extend: {
+      boxShadow: {
+        focus: "0px 0px 0px 1px hsl(204, 88%, 53%)",
+      },
+    },
   },
   plugins: [],
 }

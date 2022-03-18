@@ -1,3 +1,24 @@
+import datetime
+
+############################################################
+
+time = datetime.datetime.now()
+current_year = time.year
+months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+]
+
 footer_links = [
     "About",
     "Helper Center",
@@ -16,5 +37,5 @@ footer_links = [
     "Developers",
     "Directory",
     "Settings",
-    "© 2022 Tweeter, inc",
+    f"© {current_year} Tweeter, inc",
 ]
