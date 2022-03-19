@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+[data-modal].is-hidden {
+  display: none;
+}
+
+body.modal-is-open {
+  overflow: hidden;
+}

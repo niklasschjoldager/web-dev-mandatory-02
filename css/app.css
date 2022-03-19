@@ -492,20 +492,20 @@ Ensure the default browser behavior of the `hidden` attribute.
   left: 0px;
 }
 
-.right-0 {
-  right: 0px;
+.bottom-0 {
+  bottom: 0px;
 }
 
-.top-4 {
-  top: 1rem;
+.right-0 {
+  right: 0px;
 }
 
 .top-1 {
   top: 0.25rem;
 }
 
-.left-\[1px\] {
-  left: 1px;
+.m-auto {
+  margin: auto;
 }
 
 .mx-auto {
@@ -527,10 +527,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .mb-6 {
   margin-bottom: 1.5rem;
-}
-
-.-mr-2 {
-  margin-right: -0.5rem;
 }
 
 .mb-8 {
@@ -573,12 +569,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 2rem;
 }
 
-.h-6 {
-  height: 1.5rem;
-}
-
 .h-14 {
   height: 3.5rem;
+}
+
+.h-6 {
+  height: 1.5rem;
 }
 
 .min-h-\[46vh\] {
@@ -662,8 +658,8 @@ Ensure the default browser behavior of the `hidden` attribute.
        column-gap: 0.75rem;
 }
 
-.overflow-hidden {
-  overflow: hidden;
+.overflow-y-auto {
+  overflow-y: auto;
 }
 
 .rounded-full {
@@ -713,6 +709,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: hsl(204 88% 53% / var(--tw-bg-opacity));
 }
 
+.bg-black\/50 {
+  background-color: hsl(213 27% 8% / 0.5);
+}
+
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: hsl(0 0% 100% / var(--tw-bg-opacity));
@@ -754,19 +754,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-bottom: 0.5rem;
 }
 
-.px-4 {
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
 .px-2 {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
-}
-
-.py-4 {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
 }
 
 .px-3 {
@@ -782,8 +772,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-bottom: 3.5rem;
 }
 
-.pt-4 {
-  padding-top: 1rem;
+.pt-2 {
+  padding-top: 0.5rem;
 }
 
 .pb-4 {
@@ -802,8 +792,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-bottom: 0.5rem;
 }
 
-.pl-2 {
-  padding-left: 0.5rem;
+.pl-1 {
+  padding-left: 0.25rem;
 }
 
 .pr-12 {
@@ -814,16 +804,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-top: 0.25rem;
 }
 
-.pl-1\.5 {
-  padding-left: 0.375rem;
-}
-
-.pl-1 {
-  padding-left: 0.25rem;
-}
-
-.pt-2 {
-  padding-top: 0.5rem;
+.pl-2 {
+  padding-left: 0.5rem;
 }
 
 .text-center {
@@ -900,33 +882,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   outline-offset: 2px;
 }
 
-.outline {
-  outline-style: solid;
-}
-
-.outline-1 {
-  outline-width: 1px;
-}
-
-.outline-2 {
-  outline-width: 2px;
-}
-
-.outline-offset-2 {
-  outline-offset: 2px;
-}
-
-.outline-offset-4 {
-  outline-offset: 4px;
-}
-
 .outline-offset-0 {
   outline-offset: 0px;
-}
-
-.ring-primary-200 {
-  --tw-ring-opacity: 1;
-  --tw-ring-color: hsl(204 88% 53% / var(--tw-ring-opacity));
 }
 
 .transition-colors {
@@ -943,6 +900,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   transition-duration: 150ms;
 }
 
+[data-modal].is-hidden {
+  display: none;
+}
+
+body.modal-is-open {
+  overflow: hidden;
+}
+
 .hover\:bg-primary-100:hover {
   --tw-bg-opacity: 1;
   background-color: hsl(204 79% 47% / var(--tw-bg-opacity));
@@ -953,13 +918,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: hsl(204 88% 53% / var(--tw-bg-opacity));
 }
 
-.hover\:bg-gray-500:hover {
-  --tw-bg-opacity: 1;
-  background-color: hsl(207 10% 17% / var(--tw-bg-opacity));
-}
-
 .hover\:bg-gray-500\/10:hover {
   background-color: hsl(207 10% 17% / 0.1);
+}
+
+.hover\:bg-black\/10:hover {
+  background-color: hsl(213 27% 8% / 0.1);
 }
 
 .hover\:bg-opacity-10:hover {
@@ -984,6 +948,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: hsl(207 10% 17% / 0.1);
 }
 
+.focus\:bg-black\/10:focus {
+  background-color: hsl(213 27% 8% / 0.1);
+}
+
 .focus\:bg-opacity-90:focus {
   --tw-bg-opacity: 0.9;
 }
@@ -999,56 +967,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-.focus\:outline-gray-400:focus {
-  outline-color: hsl(206, 15%, 38%);
-}
-
-.focus\:outline-gray-300:focus {
-  outline-color: hsl(199, 20%, 84%);
-}
-
-.focus\:outline-gray-400\/10:focus {
-  outline-color: hsl(206 15% 38% / 0.1);
-}
-
-.focus\:outline-black\/10:focus {
-  outline-color: hsl(213 27% 8% / 0.1);
-}
-
 .focus\:outline-black\/30:focus {
   outline-color: hsl(213 27% 8% / 0.3);
-}
-
-.focus-visible\:outline:focus-visible {
-  outline-style: solid;
-}
-
-.focus-visible\:outline-primary-200:focus-visible {
-  outline-color: hsl(204, 88%, 53%);
-}
-
-.peer:-moz-placeholder-shown ~ .peer-placeholder-shown\:top-6 {
-  top: 1.5rem;
-}
-
-.peer:-ms-input-placeholder ~ .peer-placeholder-shown\:top-6 {
-  top: 1.5rem;
-}
-
-.peer:placeholder-shown ~ .peer-placeholder-shown\:top-6 {
-  top: 1.5rem;
-}
-
-.peer:-moz-placeholder-shown ~ .peer-placeholder-shown\:top-\[25px\] {
-  top: 25px;
-}
-
-.peer:-ms-input-placeholder ~ .peer-placeholder-shown\:top-\[25px\] {
-  top: 25px;
-}
-
-.peer:placeholder-shown ~ .peer-placeholder-shown\:top-\[25px\] {
-  top: 25px;
 }
 
 .peer:-moz-placeholder-shown ~ .peer-placeholder-shown\:top-4 {
@@ -1097,10 +1017,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   top: 0.25rem;
 }
 
-.peer:focus ~ .peer-focus\:left-\[1px\] {
-  left: 1px;
-}
-
 .peer:focus ~ .peer-focus\:border-primary-200 {
   --tw-border-opacity: 1;
   border-color: hsl(204 88% 53% / var(--tw-border-opacity));
@@ -1114,6 +1030,34 @@ Ensure the default browser behavior of the `hidden` attribute.
 .peer:focus ~ .peer-focus\:text-primary-200 {
   --tw-text-opacity: 1;
   color: hsl(204 88% 53% / var(--tw-text-opacity));
+}
+
+@media (min-width: 640px) {
+  .sm\:flex {
+    display: flex;
+  }
+
+  .sm\:h-fit {
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+
+  .sm\:max-w-xl {
+    max-width: 36rem;
+  }
+
+  .sm\:items-center {
+    align-items: center;
+  }
+
+  .sm\:justify-center {
+    justify-content: center;
+  }
+
+  .sm\:rounded-2xl {
+    border-radius: 1rem;
+  }
 }
 
 @media (min-width: 768px) {
