@@ -1,7 +1,7 @@
 from bottle import error, default_app, get, run, static_file, view
 
 # Routes
-from routes import fourOhFour, home, index
+from routes import fourOhFour, home, index, logout
 
 # Tweets
 from api.tweets import (
@@ -15,12 +15,10 @@ from api.tweets import (
 )
 
 # Users
-import api.users.users_get
-import api.users.users_post
+from api.users import users_get, users_post
 
 # Auth
 import api.auth.login_post
-import api.auth.logout_post
 
 
 ############################################################
