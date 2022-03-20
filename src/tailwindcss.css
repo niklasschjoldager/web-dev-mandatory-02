@@ -2,10 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-[data-modal].is-hidden {
+[data-modal].is-hidden,
+[data-hook].is-hidden {
   display: none;
 }
-
 body.modal-is-open {
   overflow: hidden;
 }

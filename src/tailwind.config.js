@@ -1,3 +1,16 @@
+const plugin = require("tailwindcss/plugin")
+
+const backfaceVisibility = plugin(function ({ addUtilities }) {
+  addUtilities({
+    ".backface-visible": {
+      "backface-visibility": "visible",
+    },
+    ".backface-hidden": {
+      "backface-visibility": "hidden",
+    },
+  })
+})
+
 module.exports = {
   mode: "JIT",
   content: ["../views/**/*.html"],
@@ -12,12 +25,14 @@ module.exports = {
         200: "hsl(204, 88%, 53%)",
       },
       gray: {
-        100: "hsl(192, 20%, 95%)",
-        200: "hsl(180, 12%, 97%)",
+        100: "hsl(180, 12%, 97%)",
+        200: "hsl(192, 20%, 95%)",
         300: "hsl(199, 20%, 84%)",
         400: "hsl(206, 15%, 38%)",
         500: "hsl(207, 10%, 17%)",
       },
+      success: "hsl(160, 100%, 36%)",
+      danger: "hsl(332, 95%, 54%)",
     },
     extend: {
       boxShadow: {
@@ -25,5 +40,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [backfaceVisibility],
 }
