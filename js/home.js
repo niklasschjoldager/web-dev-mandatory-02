@@ -1,7 +1,7 @@
 const formCreateTweet = document.querySelector("[data-form=create-tweet]")
 const buttonAddMedia = formCreateTweet.querySelector("[data-action=add-media]")
 const inputAddMedia = formCreateTweet.querySelector("#tweet-media")
-const templateTweet = document.querySelector("[data-template=tweet]")
+const templateTweetItem = document.querySelector("[data-template=tweet-item]")
 const hookTweets = document.querySelector("[data-hook=tweets]")
 
 const tweetText = document.querySelector("[data-hook=tweet-text]")
@@ -55,7 +55,7 @@ async function handleCreateTweet(event) {
 
   form.reset()
 
-  const template = templateTweet.content.cloneNode(true)
+  const template = templateTweetItem.content.cloneNode(true)
   template.querySelector("[data-form=tweet]").setAttribute("id", id)
   template.querySelector("[data-field=text]").textContent = text
 
