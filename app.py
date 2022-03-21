@@ -20,7 +20,6 @@ from api.users import users_get, users_post
 # Auth
 import api.auth.login_post
 
-
 ############################################################
 @get("/static/<file_path:path>")
 def _(file_path):

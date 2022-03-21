@@ -9,7 +9,6 @@ from g import (
     JSON_WEB_TOKEN_SECRET,
     TWEET_IMAGE_ALLOWED_FILE_EXTENSIONS,
     TWEET_IMAGE_PATH,
-    tweets,
     TWEET_TEXT_MAX_LENGTH,
     TWEET_TEXT_MIN_LENGTH,
     user_sessions,
