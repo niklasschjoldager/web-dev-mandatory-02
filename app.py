@@ -28,6 +28,12 @@ def _(file_path):
 
 
 ############################################################
+@get("/tweets/<file_path:path>")
+def server_static(file_path):
+    return static_file(file_path, root="./tweets")
+
+
+############################################################
 @get("/js/<file_name>")
 def _(file_name):
     return static_file(file_name, root="./js")

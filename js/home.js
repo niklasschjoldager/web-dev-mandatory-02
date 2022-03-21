@@ -1,6 +1,6 @@
 const formCreateTweet = document.querySelector("[data-form=create-tweet]")
-const buttonAddMedia = formCreateTweet.querySelector("[data-action=add-media]")
-const inputAddMedia = formCreateTweet.querySelector("#tweet-media")
+const buttonAddImage = formCreateTweet.querySelector("[data-action=add-image]")
+const inputAddImage = formCreateTweet.querySelector("#tweet-image")
 const templateTweetItem = document.querySelector("[data-template=tweet-item]")
 const hookTweets = document.querySelector("[data-hook=tweets]")
 
@@ -19,13 +19,13 @@ function handleTweetTextResize() {
 
 const tweetImageContainer = document.querySelector("[data-hook=tweet-image-container]")
 const tweetImage = document.querySelector("[data-hook=tweet-image]")
-const buttonRemoveMedia = document.querySelector("[data-action=remove-media]")
+const buttonRemoveImage = document.querySelector("[data-action=remove-image]")
 
-buttonAddMedia.addEventListener("click", () => inputAddMedia.click())
-inputAddMedia.addEventListener("change", handleTweetAddMedia)
-buttonRemoveMedia.addEventListener("click", handleTweetRemoveMedia)
+buttonAddImage.addEventListener("click", () => inputAddImage.click())
+inputAddImage.addEventListener("change", handleTweetAddImage)
+buttonRemoveImage.addEventListener("click", handleTweetRemoveImage)
 
-function handleTweetAddMedia() {
+function handleTweetAddImage() {
   const selectedFile = this.files[0]
 
   if (!selectedFile) return tweetImageContainer.classList.add("is-hidden")
@@ -34,7 +34,7 @@ function handleTweetAddMedia() {
   tweetImageContainer.classList.remove("is-hidden")
 }
 
-function handleTweetRemoveMedia() {
+function handleTweetRemoveImage() {
   tweetImage.src = ""
   tweetImageContainer.classList.add("is-hidden")
 }
@@ -49,15 +49,24 @@ async function handleCreateTweet(event) {
     body: new FormData(form),
   })
 
-  const { tweet_id: id, tweet_text: text } = await request.json()
+  const { id, imageUrl, text } = await request.json()
 
   if (!request.ok) return alert("Could not tweet")
 
+  tweetImageContainer.classList.add("is-hidden")
+  tweetImage.src = ""
   form.reset()
 
   const template = templateTweetItem.content.cloneNode(true)
   template.querySelector("[data-form=tweet]").setAttribute("id", id)
   template.querySelector("[data-field=text]").textContent = text
+
+  if (imageUrl) {
+    template.querySelector("[data-field=image]").src = imageUrl
+    template.querySelector("[data-field=image]").classList.remove("is-hidden")
+  } else {
+    template.querySelector("[data-field=image]").remove()
+  }
 
   hookTweets.prepend(template)
 }
