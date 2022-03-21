@@ -1,13 +1,6 @@
 # Temporary
 users = [
     {
-        "user_id": "5f5f311d-ca9b-481b-8846-f7db449270f8",
-        "user_username": "niklasschjoldager",
-        "user_name": "Niklas Schjoldager",
-        "user_email": "test@mail.dk",
-        "user_password": "Mypassword123!",
-    },
-    {
         "user_id": "5739a9aa-1d86-4604-8471-aca0e710d007",
         "user_username": "HansHansen",
         "user_name": "Hans hansen",
@@ -17,10 +10,15 @@ users = [
 ]
 
 user_sessions = []
-tweets = []
-
 
 ###########################################################
+DATABASE_CONFIG = {
+    "user": "root",
+    "password": "root",
+    "host": "127.0.0.1",
+    "port": 8889,
+    "database": "tweeter_exercise",
+}
 JSON_WEB_TOKEN_SECRET = "699js!ihTri94t@sa129d90waj0cjh428h824h5298h"
 
 ###########################################################
