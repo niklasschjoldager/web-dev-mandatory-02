@@ -129,12 +129,12 @@ def _():
 
         ############################################################
         # Add user
-        add_user = f"""
+        query_add_user = f"""
             INSERT INTO users (user_id, user_username, user_name, user_email, user_password, user_created_at, user_updated_at, user_bio, user_is_active, user_website, user_location, user_birth_date, user_profile_image, user_cover_image)
             VALUES (NULL, %s, %s, %s, %s, %s, NULL, '', '1', '', '', NULL, '', '') 
         """
 
-        database_cursor.execute(add_user, user)
+        database_cursor.execute(query_add_user, user)
         database_connection.commit()
 
         ############################################################
