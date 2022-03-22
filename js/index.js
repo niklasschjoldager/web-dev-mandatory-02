@@ -72,6 +72,9 @@ async function handleCreateAccount(event) {
   const response = await request
 
   console.log(response)
-  if (!response.ok) console.log(await response.json())
+  if (!response.ok) {
+    console.log(await response.json())
+    return
+  }
   window.location.href = "/home"
 }

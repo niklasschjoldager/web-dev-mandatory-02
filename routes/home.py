@@ -1,8 +1,9 @@
 from bottle import get, view, redirect, response, request
 
 import jwt
+import mysql.connector
 
-from g import JSON_WEB_TOKEN_SECRET, user_sessions
+from g import DATABASE_CONFIG, JSON_WEB_TOKEN_SECRET
 
 ############################################################
 @get("/home")
@@ -16,9 +17,20 @@ def _():
         encoded_user_session = request.get_cookie("user_session")
         jwt_decoded = jwt.decode(encoded_user_session, JSON_WEB_TOKEN_SECRET, algorithms=["HS256"])
 
-        for session in user_sessions:
-            if jwt_decoded["session_id"] == session:
-                return
+        connection = mysql.connector.connect(**DATABASE_CONFIG)
+        cursor = connection.cursor(dictionary=True)
+
+        query_user_session = f"""
+            SELECT *
+            FROM user_sessions
+            WHERE user_session_id = %(user_session_id)s
+        """
+
+        cursor.execute(query_user_session, {"user_session_id": jwt_decoded["user_session_id"]})
+        is_user_session_valid = cursor.fetchone()
+
+        if is_user_session_valid and is_user_session_valid["user_session_id"] == jwt_decoded["user_session_id"]:
+            return
 
         response.delete_cookie("user_session")
         return redirect("/")

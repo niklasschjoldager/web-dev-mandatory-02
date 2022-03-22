@@ -145,7 +145,6 @@ def _():
         """
 
         # Create user session
-        # user_session = (str(uuid.uuid4()), int(time.time()))
         user_session_dict = {"user_session_id": str(uuid.uuid4()), "user_session_iat": int(time.time())}
         user_session_tuple = (user_session_dict["user_session_id"], user_session_dict["user_session_iat"])
 
