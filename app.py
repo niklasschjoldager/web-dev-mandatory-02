@@ -1,7 +1,7 @@
 from bottle import error, default_app, get, run, static_file, view
 
 # Routes
-from routes import fourOhFour, home, index, logout
+from routes import all_tweets, fourOhFour, home, index, logout
 
 # Tweets
 from api.tweets import (
