@@ -1,7 +1,19 @@
 from bottle import error, default_app, get, run, static_file, view
 
 # Routes
-from routes import all_tweets, fourOhFour, home, index, logout
+from routes import (
+    all_tweets,
+    bookmarks,
+    fourOhFour,
+    home,
+    index,
+    lists,
+    logout,
+    messages,
+    notifications,
+    search,
+    user_profile,
+)
 
 # Tweets
 from api.tweets import (
@@ -28,7 +40,7 @@ def _(file_path):
 
 ############################################################
 @get("/tweets/<file_path:path>")
-def server_static(file_path):
+def _(file_path):
     return static_file(file_path, root="./tweets")
 
 
