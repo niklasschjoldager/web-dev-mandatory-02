@@ -145,19 +145,18 @@ def _():
         """
 
         # Create user session
-        user_session_dict = {"user_session_id": str(uuid.uuid4()), "user_session_iat": int(time.time())}
-        user_session_tuple = (user_session_dict["user_session_id"], user_session_dict["user_session_iat"])
+        user_session = {"user_session_id": str(uuid.uuid4()), "user_session_iat": int(time.time())}
 
-        database_cursor.execute(add_user_session, user_session_tuple)
+        database_cursor.execute(add_user_session, tuple(user_session.values()))
         database_connection.commit()
 
         ############################################################
         # Success
 
-        encoded_jwt = jwt.encode(user_session_dict, JSON_WEB_TOKEN_SECRET, algorithm="HS256")
+        encoded_jwt = jwt.encode(user_session, JSON_WEB_TOKEN_SECRET, algorithm="HS256")
         response.set_cookie("user_session", encoded_jwt)
         response.status = 201
-        return {"user_id": 12312312312}
+        return {"user_id": 12312312312}  # TODO get user id
     except Exception as ex:
         print(ex)
         response.status = 500
