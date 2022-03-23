@@ -819,6 +819,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-color: transparent;
 }
 
+.border-white {
+  --tw-border-opacity: 1;
+  border-color: hsl(0 0% 100% / var(--tw-border-opacity));
+}
+
+.border-primary-200 {
+  --tw-border-opacity: 1;
+  border-color: hsl(204 88% 53% / var(--tw-border-opacity));
+}
+
 .border-b-gray-200 {
   --tw-border-opacity: 1;
   border-bottom-color: hsl(192 20% 95% / var(--tw-border-opacity));
@@ -1101,6 +1111,10 @@ body.modal-is-open {
   overflow: hidden;
 }
 
+.hover\:border-primary-200\/30:hover {
+  border-color: hsl(204 88% 53% / 0.3);
+}
+
 .hover\:bg-primary-100:hover {
   --tw-bg-opacity: 1;
   background-color: hsl(204 79% 47% / var(--tw-bg-opacity));
@@ -1123,6 +1137,10 @@ body.modal-is-open {
   background-color: hsl(213 27% 8% / 0.6);
 }
 
+.hover\:bg-primary-200\/10:hover {
+  background-color: hsl(204 88% 53% / 0.1);
+}
+
 .hover\:bg-opacity-10:hover {
   --tw-bg-opacity: 0.1;
 }
@@ -1136,6 +1154,12 @@ body.modal-is-open {
           text-decoration-line: underline;
 }
 
+.hover\:shadow-focus:hover {
+  --tw-shadow: 0px 0px 0px 1px hsl(204, 88%, 53%);
+  --tw-shadow-colored: 0px 0px 0px 1px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
 .focus\:border-primary-200:focus {
   --tw-border-opacity: 1;
   border-color: hsl(204 88% 53% / var(--tw-border-opacity));
@@ -1143,6 +1167,14 @@ body.modal-is-open {
 
 .focus\:border-black\/30:focus {
   border-color: hsl(213 27% 8% / 0.3);
+}
+
+.focus\:border-primary-200\/30:focus {
+  border-color: hsl(204 88% 53% / 0.3);
+}
+
+.focus\:border-primary-200\/10:focus {
+  border-color: hsl(204 88% 53% / 0.1);
 }
 
 .focus\:bg-gray-500\/10:focus {
@@ -1155,6 +1187,10 @@ body.modal-is-open {
 
 .focus\:bg-black\/60:focus {
   background-color: hsl(213 27% 8% / 0.6);
+}
+
+.focus\:bg-primary-200\/10:focus {
+  background-color: hsl(204 88% 53% / 0.1);
 }
 
 .focus\:bg-opacity-90:focus {
