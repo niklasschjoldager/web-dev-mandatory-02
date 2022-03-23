@@ -1,4 +1,4 @@
-from bottle import redirect, request
+from bottle import redirect, response, request
 
 import jwt
 import mysql.connector
