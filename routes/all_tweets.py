@@ -1,4 +1,4 @@
-from bottle import get, view, redirect, response, request
+from bottle import get, view
 
 import mysql.connector
 
