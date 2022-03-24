@@ -23,6 +23,7 @@ def _(user_username):
             SELECT *
             FROM tweets
             WHERE tweet_fk_user_id = %(user_id)s
+            ORDER BY tweet_created_at DESC
         """
         cursor.execute(query_get_user_tweets, {"user_id": user["user_id"]})
         tweets = cursor.fetchall()
