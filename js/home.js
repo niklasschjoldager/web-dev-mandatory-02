@@ -58,7 +58,7 @@ async function handleCreateTweet(event) {
   form.reset()
 
   const template = templateTweetItem.content.cloneNode(true)
-  template.querySelector("[data-form=tweet]").setAttribute("id", id)
+  template.querySelector("[data-form=tweet]").setAttribute("data-id", id)
   template.querySelector("[data-field=text]").textContent = text
 
   if (image_file_name) {
@@ -68,5 +68,19 @@ async function handleCreateTweet(event) {
     template.querySelector("[data-field=image]").remove()
   }
 
+  template.querySelector("[data-action=delete]").addEventListener("click", handleDeleteTweet)
+
   hookTweets.prepend(template)
+
+  async function handleDeleteTweet() {
+    const request = await fetch(`/tweets/${id}`, {
+      method: "DELETE",
+    })
+
+    const response = await request
+
+    if (!response.ok) return alert("Could not delete tweet")
+
+    hookTweets.querySelector(`[data-form="tweet"][data-id="${id}"]`).remove()
+  }
 }
