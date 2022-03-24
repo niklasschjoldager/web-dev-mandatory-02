@@ -96,6 +96,7 @@ def _():
 
         cursor.execute(query_add_tweet, tuple(tweet.values()))
         connection.commit()
+        tweet["tweet_id"] = cursor.lastrowid
 
         # Success
         response.status = 201
