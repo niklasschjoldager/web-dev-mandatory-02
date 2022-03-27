@@ -3,6 +3,8 @@ const buttonAddImage = formCreateTweet.querySelector("[data-action=add-image]")
 const inputAddImage = formCreateTweet.querySelector("#tweet-image")
 const templateTweetItem = document.querySelector("[data-template=tweet-item]")
 const hookTweets = document.querySelector("[data-hook=tweets]")
+const modalEditTweet = document.querySelector("[data-modal=edit-tweet]")
+const modalDeleteTweet = document.querySelector("[data-modal=delete-tweet]")
 
 const tweetText = document.querySelector("[data-hook=tweet-text]")
 initTweetTextResize()
@@ -58,6 +60,7 @@ async function handleCreateTweet(event) {
   form.reset()
 
   const template = templateTweetItem.content.cloneNode(true)
+  const dropdown = template.querySelector("[data-dropdown=more]")
   template.querySelector("[data-form=tweet]").setAttribute("data-id", id)
   template.querySelector("[data-field=text]").textContent = text
 
@@ -69,10 +72,38 @@ async function handleCreateTweet(event) {
   }
 
   template.querySelector("[data-action=delete]").addEventListener("click", handleDeleteTweet)
+  template.querySelector("[data-action=more").addEventListener("click", handleShowMore)
 
   hookTweets.prepend(template)
 
-  async function handleDeleteTweet() {
+  function handleShowMore(event) {
+    event.stopPropagation()
+    closeOpenDropdown()
+    dropdown.classList.remove("hidden")
+    document.addEventListener("click", handleHideShowMore)
+  }
+
+  function handleHideShowMore(event) {
+    if (dropdown.contains(event.target)) closeOpenDropdown()
+    dropdown.classList.add("hidden")
+    document.removeEventListener("click", handleHideShowMore)
+  }
+
+  function closeOpenDropdown() {
+    const dropdowns = document.querySelectorAll("[data-dropdown=more]")
+    dropdowns.forEach((dropdown) => dropdown.classList.add("hidden"))
+  }
+
+  function handleDeleteTweet() {
+    modalDeleteTweet.classList.remove("is-hidden")
+    modalDeleteTweet.querySelector("[data-action=delete-tweet]").addEventListener("click", requestDeleteTweet)
+    modalDeleteTweet.querySelector("[data-action=cancel").addEventListener("click", closeDeleteTweetModal)
+    modalDeleteTweet
+      .querySelector("[data-target=delete-tweet][data-action=toggle]")
+      .addEventListener("click", closeDeleteTweetModal)
+  }
+
+  async function requestDeleteTweet() {
     const request = await fetch(`/tweets/${id}`, {
       method: "DELETE",
     })
@@ -82,5 +113,15 @@ async function handleCreateTweet(event) {
     if (!response.ok) return alert("Could not delete tweet")
 
     hookTweets.querySelector(`[data-form="tweet"][data-id="${id}"]`).remove()
+    modalDeleteTweet.classList.add("is-hidden")
+  }
+
+  function closeDeleteTweetModal() {
+    modalDeleteTweet.querySelector("[data-action=delete-tweet]").removeEventListener("click", requestDeleteTweet)
+    modalDeleteTweet.querySelector("[data-action=cancel").removeEventListener("click", closeDeleteTweetModal)
+    modalDeleteTweet
+      .querySelector("[data-target=delete-tweet][data-action=toggle]")
+      .removeEventListener("click", closeDeleteTweetModal)
+    modalDeleteTweet.classList.add("is-hidden")
   }
 }

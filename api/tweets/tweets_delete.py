@@ -4,7 +4,7 @@ import mysql.connector
 import re
 
 from utils.user_session import validate_user_session
-from g import DATABASE_CONFIG, JSON_WEB_TOKEN_SECRET, REGEX_UUID4
+from g import DATABASE_CONFIG, JSON_WEB_TOKEN_SECRET
 
 ############################################################
 @delete("/tweets/<tweet_id>")
@@ -34,11 +34,6 @@ def _(tweet_id):
             DELETE FROM tweets
             WHERE tweet_id = %(tweet_id)s AND tweet_fk_user_id = %(user_id)s
         """
-        # Question - How would you handle this?
-        # Scenario A: User tries to delete tweet that is not his via developer tools -> Error: Unathorized
-        # Scenario B: User tries to delete his own tweet -> Error: Tweet does exist
-        # At the moment they both get "Tweet not found"
-        # Should this be two queries to the DB?
 
         cursor.execute(query_delete_tweet, {"tweet_id": tweet_id, "user_id": user_session["user_session_fk_user_id"]})
         connection.commit()
