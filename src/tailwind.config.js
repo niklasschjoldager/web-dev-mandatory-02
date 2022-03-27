@@ -32,7 +32,10 @@ module.exports = {
         500: "hsl(207, 10%, 17%)",
       },
       success: "hsl(160, 100%, 36%)",
-      danger: "hsl(332, 95%, 54%)",
+      danger: {
+        100: "hsl(357, 76%, 49%)",
+        200: "hsl(356, 91%, 54%)",
+      },
     },
     extend: {
       boxShadow: {
