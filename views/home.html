@@ -143,11 +143,11 @@
 </div>
 
 <div data-modal="edit-tweet" class="fixed top-0 left-0 w-screen h-screen is-hidden sm:flex sm:justify-center sm:items-center">
-  <div class="w-full h-full bg-black/50" data-target="edit-tweet" data-action="dismiss"></div>
+  <div class="w-full h-full bg-black/50" data-modal-dismiss></div>
 
   <div class="absolute top-0 bottom-0 left-0 right-0 flex flex-col h-full m-auto overflow-y-auto bg-white z-1 sm:rounded-2xl sm:max-w-xl sm:h-fit">
     <div class="flex items-center px-2 pt-2 pb-4">
-      <button data-target="edit-tweet" data-action="toggle" class="p-2 transition-colors rounded-full outline-none focus:bg-gray-500/10 hover:bg-gray-500/10 focus:outline-black/30 outline-offset-0" type="button">
+      <button data-modal-dismiss class="p-2 transition-colors rounded-full outline-none focus:bg-gray-500/10 hover:bg-gray-500/10 focus:outline-black/30 outline-offset-0" type="button">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
         </svg>
@@ -156,9 +156,9 @@
     
     <div class="flex flex-col flex-grow px-8 pb-8">
       <h2 class="mb-8 text-2xl font-bold">Edit Tweet</h2>
-      <form data-form="edit-tweet" class="pt-4 pb-2">
+      <form method="POST" enctype="multipart/form-data" data-form="edit-tweet" class="pt-4 pb-2">
         <div class="flex gap-4 mb-4">
-          <textarea data-hook="tweet-text" class="flex-grow h-12 pt-2 text-xl placeholder-gray-400 outline-none resize-none" name="tweet_text" id="tweet-text" placeholder="What&apos;s happening?"></textarea>
+          <textarea data-hook="tweet-text" class="flex-grow h-12 pt-2 text-xl placeholder-gray-400 outline-none resize-none" name="tweet_text" id="tweet-text"></textarea>
         </div>
         <input data-hook="input-tweet-image" type="file" name="tweet_image" id="tweet-image" hidden>
       
@@ -205,8 +205,8 @@
             </li>           
           </ul>
           <div class="flex justify-end gap-2">
-            <button data-action="cancel" class="px-8 py-2 font-semibold text-center transition-colors border border-gray-300 rounded-full outline-none hover:bg-black/10 focus:bg-black/10" type="button">Cancel</button>
-            <button data-action="edit-tweet" class="px-8 py-2 font-semibold text-center text-white transition-colors border rounded-full bg-primary-200 hover:bg-primary-100" type="submit">Confim</button>
+            <button data-modal-dismiss class="px-8 py-2 font-semibold text-center transition-colors border border-gray-300 rounded-full outline-none hover:bg-black/10 focus:bg-black/10" type="button">Cancel</button>
+            <button data-action="edit-tweet" class="px-8 py-2 font-semibold text-center text-white transition-colors border rounded-full bg-primary-200 hover:bg-primary-100" type="submit">Save</button>
           </div>
           
         </div>
@@ -216,7 +216,7 @@
 </div>
 
 <div data-modal="delete-tweet" class="fixed top-0 left-0 w-screen h-screen is-hidden sm:flex sm:justify-center sm:items-center">
-  <div class="w-full h-full bg-black/50" data-modal-backdrop></div>
+  <div class="w-full h-full bg-black/50" data-modal-dismiss></div>
 
   <div class="absolute top-0 bottom-0 left-0 right-0 flex flex-col max-w-xs m-auto overflow-y-auto bg-white z-1 rounded-2xl h-fit">
     <div class="flex flex-col flex-grow p-8">
