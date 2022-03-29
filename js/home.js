@@ -1,15 +1,24 @@
+import Dropdown from "./classes/dropdown.js"
+import Modal from "./classes/modal.js"
+
+/**********************************/
+// Create tweet
 const formCreateTweet = document.querySelector("[data-form=create-tweet]")
-const buttonAddImage = formCreateTweet.querySelector("[data-action=add-image]")
-const inputAddImage = formCreateTweet.querySelector("#tweet-image")
-const templateTweetItem = document.querySelector("[data-template=tweet-item]")
+formCreateTweet.addEventListener("submit", handleCreateTweet)
+/**********************************/
+/**********************************/
+/**********************************/
 const hookTweets = document.querySelector("[data-hook=tweets]")
+
+const templateTweetItem = document.querySelector("[data-template=tweet-item]")
+
 const modalEditTweet = document.querySelector("[data-modal=edit-tweet]")
 const modalDeleteTweet = document.querySelector("[data-modal=delete-tweet]")
 
-const tweetText = document.querySelector("[data-hook=tweet-text]")
 initTweetTextResize()
 
 function initTweetTextResize() {
+  const tweetText = document.querySelector("[data-hook=tweet-text]")
   tweetText.style.height = `${tweetText.scrollHeight}px`
   tweetText.addEventListener("input", handleTweetTextResize)
 }
@@ -18,14 +27,6 @@ function handleTweetTextResize() {
   this.style.height = ""
   this.style.height = `${this.scrollHeight}px`
 }
-
-const tweetImageContainer = document.querySelector("[data-hook=tweet-image-container]")
-const tweetImage = document.querySelector("[data-hook=tweet-image]")
-const buttonRemoveImage = document.querySelector("[data-action=remove-image]")
-
-buttonAddImage.addEventListener("click", () => inputAddImage.click())
-inputAddImage.addEventListener("change", handleTweetAddImage)
-buttonRemoveImage.addEventListener("click", handleTweetRemoveImage)
 
 function handleTweetAddImage() {
   const selectedFile = this.files[0]
@@ -41,8 +42,6 @@ function handleTweetRemoveImage() {
   tweetImageContainer.classList.add("is-hidden")
 }
 
-formCreateTweet.addEventListener("submit", handleCreateTweet)
-
 async function handleCreateTweet(event) {
   event.preventDefault()
   const form = event.target
@@ -54,6 +53,17 @@ async function handleCreateTweet(event) {
   const { tweet_id: id, tweet_image_file_name: image_file_name, tweet_text: text } = await request.json()
 
   if (!request.ok) return alert("Could not tweet")
+
+  const buttonAddImage = formCreateTweet.querySelector("[data-action=add-image]")
+  buttonAddImage.addEventListener("click", () => inputAddImage.click())
+
+  const inputAddImage = formCreateTweet.querySelector("[data-hook=input-tweet-image")
+  inputAddImage.addEventListener("change", handleTweetAddImage)
+
+  const buttonRemoveImage = formCreateTweet.querySelector("[data-action=remove-image]")
+  buttonRemoveImage.addEventListener("click", handleTweetRemoveImage)
+  const tweetImageContainer = formCreateTweet.querySelector("[data-hook=tweet-image-container]")
+  const tweetImage = formCreateTweet.querySelector("[data-hook=tweet-image]")
 
   tweetImageContainer.classList.add("is-hidden")
   tweetImage.src = ""
@@ -72,8 +82,8 @@ async function handleCreateTweet(event) {
   }
 
   template.querySelector("[data-action=delete]").addEventListener("click", handleDeleteTweet)
+  template.querySelector("[data-action=edit]").addEventListener("click", handleEditTweet)
   template.querySelector("[data-action=more").addEventListener("click", handleShowMore)
-
   hookTweets.prepend(template)
 
   function handleShowMore(event) {
@@ -124,4 +134,15 @@ async function handleCreateTweet(event) {
       .removeEventListener("click", closeDeleteTweetModal)
     modalDeleteTweet.classList.add("is-hidden")
   }
+
+  function handleEditTweet() {
+    console.log("edit")
+  }
 }
+
+const myModal = new Modal(modalDeleteTweet, document.querySelector("[data-action=show-emojis]"))
+console.log(myModal)
+myModal.openModal()
+setTimeout(() => {
+  myModal.closeModal()
+}, 2000)

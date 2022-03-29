@@ -45,13 +45,13 @@ def _(file_path):
 
 
 ############################################################
-@get("/js/<file_name>")
+@get("/js/<file_name:path>")
 def _(file_name):
     return static_file(file_name, root="./js")
 
 
 ############################################################
-@get("/css/<file_name>")
+@get("/css/<file_name:path>")
 def _(file_name):
     return static_file(file_name, root="./css")
 

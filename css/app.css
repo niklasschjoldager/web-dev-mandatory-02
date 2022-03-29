@@ -900,6 +900,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: hsl(204 88% 53% / var(--tw-bg-opacity));
 }
 
+.bg-danger-200 {
+  --tw-bg-opacity: 1;
+  background-color: hsl(356 91% 54% / var(--tw-bg-opacity));
+}
+
 .bg-transparent {
   background-color: transparent;
 }
@@ -907,11 +912,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .bg-black {
   --tw-bg-opacity: 1;
   background-color: hsl(213 27% 8% / var(--tw-bg-opacity));
-}
-
-.bg-danger-200 {
-  --tw-bg-opacity: 1;
-  background-color: hsl(356 91% 54% / var(--tw-bg-opacity));
 }
 
 .fill-primary-200 {
@@ -1094,14 +1094,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: hsl(204 88% 53% / var(--tw-text-opacity));
 }
 
-.text-white {
-  --tw-text-opacity: 1;
-  color: hsl(0 0% 100% / var(--tw-text-opacity));
-}
-
 .text-danger-200 {
   --tw-text-opacity: 1;
   color: hsl(356 91% 54% / var(--tw-text-opacity));
+}
+
+.text-white {
+  --tw-text-opacity: 1;
+  color: hsl(0 0% 100% / var(--tw-text-opacity));
 }
 
 .placeholder-gray-400::-moz-placeholder {
@@ -1200,14 +1200,14 @@ body.modal-is-open {
   background-color: hsl(204 79% 47% / var(--tw-bg-opacity));
 }
 
-.hover\:bg-primary-200:hover {
-  --tw-bg-opacity: 1;
-  background-color: hsl(204 88% 53% / var(--tw-bg-opacity));
-}
-
 .hover\:bg-danger-100:hover {
   --tw-bg-opacity: 1;
   background-color: hsl(357 76% 49% / var(--tw-bg-opacity));
+}
+
+.hover\:bg-primary-200:hover {
+  --tw-bg-opacity: 1;
+  background-color: hsl(204 88% 53% / var(--tw-bg-opacity));
 }
 
 .hover\:bg-opacity-10:hover {
